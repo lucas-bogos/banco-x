@@ -1,0 +1,20 @@
+{
+    "name": "lucasbogos/banco-x",
+    "description": "Sistema bancário orientado a objetos",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BancoX\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Bogos",
+            "email": "bogoslucas1@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "8.2.*"
+    }
+}
