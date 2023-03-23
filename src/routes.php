@@ -12,9 +12,6 @@ switch ($uri) {
     break;
     
   default:
-    require_once __DIR__ . "/pages/partials/head.php";
-    require_once __DIR__ . "/pages/partials/header.php";
-    echo 'Nada encontrado';
-    require_once __DIR__ . "/pages/partials/footer.php";
+    require_once __DIR__ . "/pages/404.php";
     break;
 }
