@@ -1,8 +1,8 @@
 <?php
 
-namespace BancoX\entities\validators;
+namespace source\entities\validators;
 
-class PasswordValidator
+class EmailValidator
 {
   public static function valid(string $email): bool
   {

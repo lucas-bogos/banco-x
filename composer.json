@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "BancoX\\": "src/"
+            "source\\": "src/"
         }
     },
     "authors": [

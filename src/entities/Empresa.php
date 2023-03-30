@@ -3,7 +3,12 @@
 
 declare(strict_types=1);
 
-namespace BancoX\entities;
+namespace source\entities;
+
+use source\entities\validators\CnpjValidator;
+use source\entities\validators\EmailValidator;
+use source\entities\validators\PasswordValidator;
+use Error;
 
 enum Status {
   case Active;
@@ -27,6 +32,21 @@ class Empresa {
   }
 
   public static function create(string $corporateName, string $email, string $password, string $cnpj, Status $status) {
+    /**
+     * Validar os valores
+     */
+    if(!PasswordValidator::valid($password)) {
+      throw new Error('A senha não é válida');
+    }
+
+    if(!CnpjValidator::valid($cnpj)) {
+      throw new Error('CNPJ não é válido');
+    }
+
+    if(!EmailValidator::valid($email)) {
+      throw new Error('Email não é válido');
+    }
+
     return new self($corporateName, $email, $password, $cnpj, $status);
   }
 

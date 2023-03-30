@@ -1,6 +1,6 @@
 <?php
 
-use BancoX\repositories\user\IUserRepository;
+namespace source\repositories\user;
 
 class UserRepositoryInMemory implements IUserRepository {
   public static array $users = [];

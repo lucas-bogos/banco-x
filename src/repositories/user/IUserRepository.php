@@ -1,6 +1,6 @@
 <?php
 
-namespace BancoX\repositories\user;
+namespace source\repositories\user;
 
 interface IUserRepository {
   public function createUser(string $name, string $email, string $password, string $cpf): bool;

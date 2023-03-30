@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BancoX\entities;
+namespace source\entities;
 
-use BancoX\entities\validators\PasswordValidator;
 use Error;
+use source\entities\validators\CpfValidator;
+use source\entities\validators\EmailValidator;
+use source\entities\validators\PasswordValidator;
 
 class User {
   private string $name;
@@ -27,6 +29,14 @@ class User {
      */
     if(!PasswordValidator::valid($password)) {
       throw new Error('A senha não é válida');
+    }
+
+    if(!CpfValidator::valid($cpf)) {
+      throw new Error('CPF não é válido');
+    }
+
+    if(!EmailValidator::valid($email)) {
+      throw new Error('Email não é válido');
     }
 
     return new self($name, $email, $password, $cpf);
