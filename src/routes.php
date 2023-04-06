@@ -10,6 +10,10 @@ switch ($uri) {
   case '/conta':
     require_once __DIR__ . "/pages/conta.php";
     break;
+
+  case '/login':
+    require_once __DIR__ . "/pages/login.php";
+    break;
     
   default:
     require_once __DIR__ . "/pages/404.php";
