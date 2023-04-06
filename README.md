@@ -8,7 +8,7 @@
 
 [ x ] cadastro de usuário
 
-[ ] obter usuário por CPF
+[ x ] obter usuário por CPF
 
 
 ### Conta bancária
