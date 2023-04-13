@@ -13,14 +13,14 @@
 
 ### Conta bancária
 
-[ ] sacar dinheiro
+[ x ] sacar dinheiro
 
-[ ] fazer depósito
+[ x ] fazer depósito
 
-[ ] transferência interna
+[ x ] transferência interna
 
-[ ] pagar conta
+[ x ] pagar conta
 
-[ ] ver saldo
+[ x ] ver saldo
 
-[ ] histórico de transações (extrato)
+[ x ] histórico de transações (extrato)
