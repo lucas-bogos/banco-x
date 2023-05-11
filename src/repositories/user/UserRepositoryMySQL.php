@@ -2,6 +2,7 @@
 
 namespace source\repositories\user;
 
+use PDO;
 use source\shared\ConnectionDb;
 
 class UserRepositoryMySQL implements IUserRepository {
@@ -23,11 +24,27 @@ class UserRepositoryMySQL implements IUserRepository {
 
   public function getUserByCpf(string|int $cpf): mixed
   {
-    
+    $db = ConnectionDb::get();
+
+    $query = "SELECT * FROM user WHERE cpf=:cpf";
+
+    $statement = $db->prepare($query);
+
+    $statement->bindValue(":cpf", (string)$cpf);
+
+    $statement->execute();
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function getAllUsers(): mixed
   {
-    
+    $db = ConnectionDb::get();
+
+    $query = "SELECT id, name, email, cpf FROM user";
+
+    $statement = $db->query($query);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 }
