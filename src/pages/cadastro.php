@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <div>
-  <form class="register-form" method="post" action="http://localhost:8080/cadastro">
+  <form class="register-form" method="post" action="/cadastro">
     <div>
       <label for="name">Nome</label><br>
       <input type="text" name="name">
