@@ -33,6 +33,7 @@ class RegisterUser {
 
     } catch(PDOException $error) {
       echo $error->getMessage();
+
     }
   }
 }
