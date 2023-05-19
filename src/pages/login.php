@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use source\controllers\LoginController;
 
 require_once __DIR__ . "/partials/head.php";
 
@@ -6,13 +8,22 @@ useHead("Logar no Banco X", "Faça login para acessar sua conta X");
 
 require_once __DIR__ . "/partials/header.php"; 
 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+  $payload = [
+    "cpf" => filter_input(INPUT_POST, "cpf"),
+    "password" => filter_input(INPUT_POST, "password")
+  ];
+
+  LoginController::index($payload);
+}
+
 ?>
 
 <div>
   <h1>Logar no Banco X</h1>
 </div>
 
-<form method="post">
+<form action="/login" method="post">
   <div>
     <label for="cpf">CPF: </label>
     <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00">
