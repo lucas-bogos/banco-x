@@ -12,4 +12,9 @@ require_once __DIR__ . "/partials/header.php";
   <h1>Banco X</h1>
 </div>
 
+<?php
+  var_dump($_SESSION);
+
+?>
+
 <?php require_once __DIR__ . "/partials/footer.php" ?>
