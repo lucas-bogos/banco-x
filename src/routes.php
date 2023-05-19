@@ -1,6 +1,12 @@
 <?php
 
+use source\app\Login;
+
 $uri = $_SERVER['REQUEST_URI'];
+
+if(!Login::isLogged() && $uri != "/login" && $uri != "/cadastro") {
+  header("Location: /login");
+}
 
 switch ($uri) {
   case '/':
