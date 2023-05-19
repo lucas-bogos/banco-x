@@ -5,6 +5,7 @@ declare(strict_types=1); // A tipagem deve ser respeitada
 namespace source\app;
 
 use Error;
+use PDOException;
 use source\entities\User;
 use source\repositories\user\IUserRepository;
 
@@ -30,6 +31,8 @@ class RegisterUser {
     } catch(Error $error) {
       echo $error->getMessage();
 
+    } catch(PDOException $error) {
+      echo $error->getMessage();
     }
   }
 }
