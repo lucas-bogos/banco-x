@@ -2,7 +2,10 @@
 
 namespace source\app;
 
+use source\entities\validators\CpfValidator;
 use source\repositories\user\IUserRepository;
+
+session_start();
 
 class Login {
   public IUserRepository $repository;
@@ -11,39 +14,38 @@ class Login {
     $this->repository = $repository;
   }
 
-  public function checkCredentials(string $cpf, string $password) {
-    /**
-     * Acessar repositório para checar se: 
-     * 
-     * * cpf existe
-     * * senha está correta
-     * 
-     */
+  public function checkCredentials(string $cpf, string $password): false | array {
 
-     /**
-      * TODO: validar o CPF
-      */
+    $isCpfValid = CpfValidator::valid($cpf);
 
-    $user = $this->repository->getUserByCpf($cpf);
-
-    if(!$user) {
+    if(!$isCpfValid) {
       return false;
     }
 
-    if($user["password"] !== $password) {
+    $user = $this->repository->getUserByCpf($cpf);
+
+    if(count($user) == 0) {
+      return false;
+    }
+
+    if($user[0]["cpf"] != $cpf) {
+      return false;
+    }
+
+    if($user[0]["password"] != $password) {
       return false;
     }
 
     $_SESSION["user_logged"] = [
-      "name" => $user["name"],
-      "email" => $user["email"]
+      "name" => $user[0]["name"],
+      "email" => $user[0]["email"]
     ];
 
     return $user;
   }
 
   public static function isLogged(): bool {
-    if(isset($_SESSION["user_logged"])) {
+    if($_SESSION["user_logged"]) {
       return true;
     }
 
